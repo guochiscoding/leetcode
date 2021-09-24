@@ -31,9 +31,15 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
- var swapPairs = function(head) {
-        let dummyHead = new ListNode(0);
-        dummyHead.next = head;
+var swapPairs = function (head) {
+        if (!head || !head.next) return head
+        let one = head;
+        let two = head.next;
+        let three = two.next;
+
+        two.next = one;
+        one.next = swapPairs(three);
+        return two
 
 };
 

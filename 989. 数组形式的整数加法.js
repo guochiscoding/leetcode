@@ -34,35 +34,9 @@
 如果 A.length > 1，那么 A[0] != 0
 */
 
-function sub(a, k) {
-        let subNum = 0;
-        let aStr = "";
-        k = k.toString()
-        a.forEach(item => {
-                aStr += item;
-        });
+function sub(num, k) {
+        let arr = [];
+        let leng = num.length;
+        for(let i = leng -1)
 
-
-        let maxLength = Math.max(aStr.length, k.length)
-
-        aStr = aStr.padStart(maxLength, 0);
-        k = k.padStart(maxLength, 0);
-        console.log(maxLength, aStr, k, subNum)
-
-        let t = 0;
-        let f = 0;   //"进位"
-        for (let i = maxLength - 1; i >= 0; i--) {
-                t = parseInt(aStr[i]) + parseInt(k[i]) + f;
-                f = Math.floor(t / 10);
-                subNum = t % 10 + subNum;
-        }
-        if (f == 1) {
-                subNum = "1" + subNum;
-        }
-        console.log(subNum)
-        subNum = subNum.toString().split("")
-        console.log(subNum)
-        return subNum;
 }
-return (sub([1, 2, 6, 3, 0, 7, 1, 7, 1, 9, 7, 5, 6, 6, 4, 4, 0, 0, 6, 3],
-        516))
